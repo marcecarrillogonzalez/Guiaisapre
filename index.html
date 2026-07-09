@@ -959,7 +959,13 @@ function submitForm(){
   state.edadesCargas = document.getElementById('fieldEdadesCargas').value.trim();
   state.clinicas = document.getElementById('fieldClinicas').value.trim();
   state.telefono = document.getElementById('fieldTelefono').value.trim();
-  // Aquí se conecta a Supabase / webhook con el objeto `state`
+
+  fetch('https://hook.us2.make.com/yfj4va4gh782bifrql8uizmaq4uj7kdx', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(state)
+  }).catch(err => console.error('Error enviando a Make:', err));
+
   document.getElementById('progressArea').style.display='none';
   document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
   document.querySelector('.form-step[data-step="6"]').classList.add('active');
