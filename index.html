@@ -309,6 +309,14 @@ footer{border-top:1px solid var(--border);padding:56px 0 28px;font-size:13px;col
 .wa-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.4);z-index:60;cursor:pointer}
 .wa-float svg{width:26px;height:26px}
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18312060309"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18312060309');
+</script>
 </head>
 <body>
 
@@ -992,6 +1000,12 @@ function submitForm(){
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(state)
   }).catch(err => console.error('Error enviando a Make:', err));
+
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18312060309/kcSqCLXG-88cEJW775tE',
+      'value': 1.0,
+      'currency': 'USD'
+  });
 
   document.getElementById('progressArea').style.display='none';
   document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
